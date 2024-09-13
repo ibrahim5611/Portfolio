@@ -1,0 +1,165 @@
+/* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Set the page background to black */
+  color: white; /* Set default text color to white for readability */
+  scroll-behavior: smooth;
+}
+
+/* Navigation styles for vertical layout */
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 80px; /* Reduced width for icon-only navigation */
+  background-color: #000; /* Changed to black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: 20px;
+  position: relative; /* Required for tooltip positioning */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.5em; /* Increase icon size */
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Tooltip styles */
+nav ul li a::after {
+  content: attr(data-tooltip); /* Fetch the tooltip text from the data-tooltip attribute */
+  position: absolute;
+  left: 100%; /* Position tooltip to the right of the icon */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #555;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  transform: translate(10px, -50%);
+  pointer-events: none; /* Prevent interaction with tooltip */
+}
+
+/* Show tooltip on hover */
+nav ul li a:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(15px, -50%); /* Move the tooltip slightly further right */
+}
+
+/* Section styles */
+.section {
+  margin-left: 220px; /* Creates space for the vertical nav bar */
+  padding: 80px 20px;
+  min-height: 100vh;
+  background-color: black; /* Black background for sections */
+}
+
+/* Home Section */
+.home {
+  color: white; /* Keep the text white for readability */
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 4em;
+  margin-top: 20vh;
+}
+
+/* Timeline styles */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #555; /* Lighter color for the timeline line */
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+/* Project Cards */
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  border: 1px solid #444; /* Dark border for project cards */
+  background-color: #222; /* Dark background for project cards */
+  color: white;
+  padding: 15px;
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #222; /* Dark background for input fields */
+  border: 1px solid #555;
+  color: white; /* White text for input fields */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
